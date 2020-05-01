@@ -2,6 +2,18 @@ import React,{Component} from 'react';
 import { Card , CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
 class Dishdetail extends Component{
+    
+    renderDish(dish){
+        return (
+            <Card>
+                <CardImg top src={dish.image} alt={dish.name}/>
+                <CardBody>
+                    <CardTitle>{dish.name}</CardTitle>
+                    <CardText>{dish.description}</CardText>
+                </CardBody>
+            </Card>
+        )
+    }
 
     renderComments(comments){
         if(comments!=null){
@@ -23,21 +35,18 @@ class Dishdetail extends Component{
     render(){
         const {dish}=this.props;
         return (
-            <div className="row">
+            <div className="container">
+                <div className="row">
                 <div className="col-12 col-md-5 m-1">
-                    <Card>
-                        <CardImg top src={dish.image} alt={dish.name}/>
-                        <CardBody>
-                            <CardTitle>{dish.name}</CardTitle>
-                            <CardText>{dish.description}</CardText>
-                        </CardBody>
-                    </Card>
+                    {this.renderDish(dish)}
                 </div>
                 <div className="col-12 col-md-5 m-1">
                     <h4>Comments</h4>
                     {this.renderComments(dish.comments)}
                 </div>
+                </div>
             </div>
+            
         );
     }
 
