@@ -1,3 +1,18 @@
+# Front End Development With React
+
+Topics covered in this section are:
+
+-   Using Create-react-app to create your own react start app
+-   Integrating git and npm
+-   Integrating various packages like
+    -   Reactstrap (One of the sexiest styling package(`Bootstrap`) integrated with `React`)
+    -   react-router-dom
+    -   font-awesome
+    -   bootstrap-social
+    -   ...the list goes on .
+-   Project involved Creating the UI for a restaurant Using React
+-   Instructor - `Professor Jogesh Muppala`
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
