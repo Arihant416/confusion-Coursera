@@ -23,7 +23,7 @@ const mapDispatchToProps = (dispatch) => ({
     addComment: (dishId, rating, author, comment) =>
         dispatch(addComment(dishId, rating, author, comment)),
     fetchDishes: () => {
-        dispatch(fetchDishes);
+        dispatch(fetchDishes());
     },
 });
 
@@ -35,6 +35,7 @@ class Main extends Component {
     componentDidMount() {
         this.props.fetchDishes();
     }
+
     render() {
         const HomePage = () => {
             return (
