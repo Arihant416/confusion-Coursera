@@ -8,14 +8,15 @@ import {
     Row,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { Control, LocalForm, Errors } from 'react-redux-form';
+// eslint-disable-next-line no-unused-vars
+import { Control, Form, Errors, actions } from 'react-redux-form';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
 const minLength = (len) => (val) => val && val.length >= len;
 const isNumber = (val) => !isNaN(Number(val));
 const validEmail = (val) =>
-    /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2-4}$/i.test(val);
+    /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
 
 class Contact extends Component {
     constructor(props) {
@@ -26,6 +27,7 @@ class Contact extends Component {
     handleSubmit(values) {
         console.log('Current state is' + JSON.stringify(values));
         alert('Current State is' + JSON.stringify(values));
+        this.props.resetFeedbackForm();
     }
 
     render() {
@@ -80,7 +82,11 @@ class Contact extends Component {
                             >
                                 <i className='fa fa-phone'></i> Call
                             </a>
-                            <a role='button' className='btn btn-info'>
+                            <a
+                                role='button'
+                                href='true'
+                                className='btn btn-info'
+                            >
                                 <i className='fa fa-skype'></i> Skype
                             </a>
                             <a
@@ -98,7 +104,8 @@ class Contact extends Component {
                         <h3>Send us your Feedback</h3>
                     </div>
                     <div className='col-12 col-md-9'>
-                        <LocalForm
+                        <Form
+                            model='feedback'
                             onSubmit={(values) => this.handleSubmit(values)}
                         >
                             <Row className='form-group'>
@@ -268,7 +275,7 @@ class Contact extends Component {
                                     </Button>
                                 </Col>
                             </Row>
-                        </LocalForm>
+                        </Form>
                     </div>
                 </div>
             </div>
